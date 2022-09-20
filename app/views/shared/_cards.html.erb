@@ -1,0 +1,31 @@
+<div class="album py-4 bg-white">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+            <% @hotels.each do |hotel| %>
+            <!-- card -->
+            <div class="col">
+                <div class="card" style="border: 0;">
+                    <img src="https://images.unsplash.com/photo-1545175707-9eec1209f720?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" style="border-radius: 12px;", alt="image">
+                    <div class="card-body" style="padding: 8px 8px 8px 0;">
+                        <div style="max-height:200px; overflow-y: scroll;">
+                            <p class="fw-bold m-0" style="font-size: 24px;"><%= hotel.name %></p>
+                            <p class="card-text"><%= hotel.address %></p>
+                            <p class="card-text" style="font-size:12px;">This hotel is a modern, elegant 5-star hotel overlooking the sea, perfect for a romantic, charming vacation, in Mauritius.</p>
+                            <% @rooms.each do |room| %>
+                            <p class="card-text">Price: <%= room.price %></p>
+                            <% end %>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="border-radius: 8px;"><%= link_to "View", hotel_path(hotel) %></button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary mx-2" style="border-radius: 8px;"><%= link_to "Edit", edit_hotel_path(hotel) %></button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" style="border-radius: 8px;"><%= link_to "Delete", hotel_path(hotel), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>

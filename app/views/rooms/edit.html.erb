@@ -1,0 +1,20 @@
+<div class="position-static d-block bg-white py-5 h-100" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="height:90vh;">
+        <div class="modal-content rounded-4 shadow" style="border-radius: 12px;">
+            <div class="modal-header p-5 pb-4 border-bottom-0 bg d-flex justify-content-center">
+            <!-- <h5 class="modal-title">Modal title</h5> -->
+            <h2 class="fw-bold mb-0">Edit Room</h2>
+            </div>
+            <div class="modal-body p-5 pt-0">
+                <%= simple_form_for @room, url: rooms_path, method: :post do |f|  %> 
+                    <%= f.input :price, label: "Price per night" %>
+                    <%= f.input :capacity, label: "Room Capacity" %>
+                    
+                    <p class="mt-4">
+                        <%= f.button :submit, value: 'Update Room', class: "w-100 btn btn-primary btn-lg" %>
+                    </p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
